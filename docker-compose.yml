@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+  express_api:
+    container_name: express_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: express_api
+    user: node
+    working_dir: /home/node/app/api
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 7770:7770
+    env_file:
+      - ./api/.env
+  react_client:
+    container_name: react_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: react_client
+    working_dir: /home/node/app/client
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 7771:7771
+    env_file:
+       ./client/.env
