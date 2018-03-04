@@ -1,0 +1,16 @@
+#!/bin/bash
+source $PWD/bin/bash.sh
+
+execute docker-compose down
+
+execute rm -rf api client
+
+execute git clone git@github.com:anthub-services/node-express-api-mockup-data-boilerplate.git api
+execute cp $PWD/api/.env.dist $PWD/api/.env
+
+execute git clone git@github.com:anthub-services/create-react-app-boilerplate.git client
+execute cp $PWD/client/.env.dist $PWD/client/.env
+
+execute docker-compose build
+
+execute docker-compose up
