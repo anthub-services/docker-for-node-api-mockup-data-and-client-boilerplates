@@ -9,7 +9,9 @@ execute git clone git@github.com:anthub-services/node-express-api-mockup-data-bo
 execute cp $PWD/api/.env.dist $PWD/api/.env
 
 execute git clone git@github.com:anthub-services/create-react-app-boilerplate.git client
+
 execute cp $PWD/client/.env.dist $PWD/client/.env
+execute cp -r $PWD/client/src/Config.dist $PWD/client/src/Config
 
 execute docker-compose build
 
